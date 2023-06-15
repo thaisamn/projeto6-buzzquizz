@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projeto6-buzzquizz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="topo">
+        <p>BuzzQuizz</p>
+    </div>
+    <div class="container paginas pagina-1"> 
+        <div class="criarQuizz">
+            <p>Você não criou nenhum quizz ainda :(</p>
+            <button onclick="mudarDePagina('pagina-3')">Criar Quizz</button>
+             
+        </div>
+        <div class="container-todo-quizzes"> 
+            <p>Seus Quizzes</p> 
+            <div class="seus-quizzes">
+                <div class="caixa-individual-quizz"> 
+                    <img src="./imgs/Simpsons.png" alt="">
+                    <p>Acerte os personagens corretos dos Simpsons e prove seu amor!</p>
+                </div>
+                <div class="caixa-individual-quizz"> 
+                    <img src="./imgs/Simpsons.png" alt="">
+                    <p>Acerte os personagens corretos dos Simpsons e prove seu amor!</p>
+                </div> 
+            </div>    
+        </div>     
+
+
+        <div class="container-todo-quizzes"> 
+            <p>Todos os Quizzes</p> 
+            <div class="todos-quizzes">
+            
+            </div>    
+        </div>     
+
+
+
+    </div> 
+    <div class="container-tela2 paginas pagina-2 esconder">
+        <div class=" capa-quizz  caixa-individual-quizz "> 
+            <img src="./imgs/casteloPotter.png" alt="">
+            <p>NOME DO QUIZZ, QUE SERA CLICADO</p>
+        </div>
+        <div class="container-de-perguntas esconder">
+            <div class="pergunta-individual"> <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p></div> 
+        
+                <div class="imagens-para-selecionar esconder">
+                    <div class="opcoes-unidades">
+                        <img src="./imgs/bichopreguica.png" alt="">
+                        <p>Animal</p> 
+                    </div>
+                    <div class="opcoes-unidades">
+                        <img src="./imgs/bichopreguica.png" alt="">
+                        <p>Animal</p> 
+                    </div>
+                </div>
+                <div class="imagens-para-selecionar esconder">
+                    <div class="opcoes-unidades">
+                        <img src="./imgs/bichopreguica.png" alt="">
+                        <p>Animal</p> 
+                    </div>
+                    <div class= "respostaCerta respostaErrada nãoSelecionado opcoes-unidades"> <!-- clas resposta certa, errada e nao selecionado colocado apenas para fazer teste e adiantar-->
+                        <img  src="./imgs/bichopreguica.png" alt="">
+                        <p>Animal</p> 
+                    </div>
+                </div> 
+            <div class="resultadoFinal esconder">
+                <div class="topo topo-resultado-final">
+                    <span>88% de acerto: Você é praticamente um aluno de Hogwarts!</span>
+                </div>
+                <img src="./imgs/image 10.png" alt="">
+                <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</p>
+                <div class="resultadoFinal-butoes">            
+                    <button>Reiniciar Quizz</button>
+                    <span>Voltar pra home</span>
+                </div>
+            </div>    
+        </div>
+    </div>
+   <div class="container3 paginas pagina-3 esconder">
+        <div class="criandoQuizz">
+            <p>Comece pelo começo</p>
+            <input type="text" value="Título do seu quizz">
+            <input type="text" value="URL da imagem do seu quizz">
+            <input type="text" value="Quantidade de perguntas do quizz">
+            <input type="text" value="Quantidade de níveis do quizz">
+            <button>Prosseguir pra criar perguntas</button>
+        </div>
+        <div class="criandoPerguntas">
+            <p>Crie suas perguntas</p>
+            <input type="text" value="Título do seu quizz">
+            <input type="text" value="URL da imagem do seu quizz">
+            <input type="text" value="Quantidade de perguntas do quizz">
+            <input type="text" value="Quantidade de níveis do quizz">
+            <button>Prosseguir pra criar níveis</button>
+        </div>
+        <div class="criandoNiveis">
+            <p>Agora, decida os níveis!</p>
+            <input type="text" value="Título do seu quizz">
+            <input type="text" value="URL da imagem do seu quizz">
+            <input type="text" value="Quantidade de perguntas do quizz">
+            <input type="text" value="Quantidade de níveis do quizz">
+            <button>Finalizar Quizz</button>
+        </div>
+        <div class="QuizzPronto">
+            <p>Seu quizz está pronto!</p>
+            <input type="text" value="Título do seu quizz">
+            <input type="text" value="URL da imagem do seu quizz">
+            <input type="text" value="Quantidade de perguntas do quizz">
+            <input type="text" value="Quantidade de níveis do quizz">
+            <button>Acessar Quizz</button>
+        </div>
+    </div> 
+
+   
+
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./scripts/scripts-tela-1.js"></script>
+</body>
+</html>
