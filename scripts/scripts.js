@@ -128,26 +128,3 @@ function iniciar() {
 
 
 
-// Criar a primeira função para executar o projeto
-
-// apenas mostrar 'seus quizzes e a lista de baixo mostrar todos quizzes
-
-// função ao clicar no 'criar quizz' a tela some e aparece a tela 3(dentro da div container3) 
-
-//  pagina do quizz deve ter um banner com a imagem escurecida e com titulo
-
-// as respostas das perguntas tem que ser exibida aleatoriamente
-
-//ao clicar em uma respostas as outras opçoes tem que receber um filtro esbranquiçado
-
-// n deve ser possivel alterar a resposta apos a escolha 
-
-// apos 2seg de respondida deve scrollar a pagina para proxima pergunta 
-
-// no final do quizz depois de 2seg irá dar scroll e abrir uma caixa de resultados, chamado container2
-
-// criar função chamada porcentagem dos resultados e executar dentro da caixa acima - sem nenhuma comunicaçao com o servidor - 
-
-//  criar uma função que irá ReiniciarQuizz - a pagina deve ser scroll ate o topo e as respostas zeradas e a caixa de resul escondida novamente.
-
-// criar função voltando para home

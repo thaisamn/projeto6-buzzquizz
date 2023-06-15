@@ -1,3 +1,5 @@
+// teste guilherme 
+
 axios.defaults.headers.common["Authorization"] = "2TjnuBhj7Kpss5QJF2YSHoj0";
 const localStorage = window.localStorage
 
@@ -7,7 +9,6 @@ window.addEventListener('load', () => {
 
 function iniciar() {
 	renderizarTodosQuizzes();
-	salvarQuizes({id: "2997"})
 }
 
 iniciar();
@@ -24,17 +25,58 @@ function mudarDePagina(pagina) {
 	})
 }
 
+function SelecionandoQuiz(quizSelecionado) {	
+	mudarDePagina('pagina-2')
+}
+
+
+
+
 async function renderizarTodosQuizzes(){
 	const elementoTodosOsQuizzes = document.querySelector('.todos-quizzes');
+	const elementoSeusQuizzes = document.querySelector('.seus-quizzes');
+
 	const quizzes = await obterQuizzes();
-	console.log('quizzes', quizzes)
-	quizzes.forEach(quiz => {
+	const {seusQuizzes, todosOsQuizzes} = separandoQuiz(quizzes)
+	todosOsQuizzes.forEach(quiz => {
 		elementoTodosOsQuizzes.innerHTML += 
 		`<div class="caixa-individual-quizz"> 
 		<img src="${quiz.image}" alt="">
 		<p>${quiz.title}</p>
 		</div>`
 	})
+
+	seusQuizzes.forEach(quiz => {
+		elementoSeusQuizzes.innerHTML += 
+		`<div class="caixa-individual-quizz"> 
+		<img src="${quiz.image}" alt="">
+		<p>${quiz.title}</p>
+		</div>`
+	})
+
+}
+
+function separandoQuiz(quizzes){
+
+	const todosOsQuizzes = [], quizzesDoUsuario = [];
+	let seusQuizzes = pegarSeusQuizes();
+	console.log('seusQuizzes', seusQuizzes)
+	
+	quizzes.forEach(quiz => {
+		let quizSalvo = seusQuizzes.find(q => q.id == quiz.id)
+		if(quizSalvo){
+			quizzesDoUsuario.push(quiz)
+		}else{
+			todosOsQuizzes.push(quiz)
+		}
+	})
+
+
+	return {
+		todosOsQuizzes,
+		seusQuizzes: quizzesDoUsuario
+	}
+
 }
 
 
@@ -61,6 +103,7 @@ async function criarQuizz(dadosQuizz) {
 
 function pegarSeusQuizes( ) {
 	const data = localStorage.getItem('meus-quizzes')
+	console.log('data pegar seus quizes', data)
 	if(data){
 		return JSON.parse(data)
 	}else {
@@ -72,8 +115,12 @@ function salvarQuizes(quiz){
 	const quizzes = pegarSeusQuizes();
 	quizzes.push(quiz)
 	const data = JSON.stringify(quizzes);
-	localStorage.setItem('meus-quizes', data)
+	localStorage.setItem('meus-quizzes', data)
 }
+
+
+
+
 
 // objeto array:
 
