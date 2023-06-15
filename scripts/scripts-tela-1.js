@@ -182,3 +182,5 @@ function salvarQuizes(quiz){
 //  criar uma função que irá ReiniciarQuizz - a pagina deve ser scroll ate o topo e as respostas zeradas e a caixa de resul escondida novamente.
 
 // criar função voltando para home
+
+//qdisjfiods
