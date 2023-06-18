@@ -1,5 +1,12 @@
 let quantidadeNiveis = 0;
 let quantidadePerguntas = 0;
+let tituloTela3 = document.querySelector('.titulo-tela3')
+let divPrimeirasPerguntas = document.querySelector('.div-primeiras-perg')
+let primeiroBotaoTela3 = document.querySelector('.primeiro-botao-tela3')
+let divPerguntas = document.querySelector('.div-perguntas')
+let segundoBotaoTela3 = document.querySelector('.segundo-botao-tela3')
+let divNiveis = document.querySelector('.div-niveis')
+let terceiroBotaoTela3 = document.querySelector('.terceiro-botao-tela3')
 
 let objetoFinal = {
 	title: "",
@@ -44,10 +51,17 @@ function prosseguirParaCriarPerguntas() {
     quantidadeNiveis = document.querySelector('input-qtdade-niveis').value
     quantidadePerguntas = document.querySelector('input-qtdade-perguntas').value
 
-    //mostrar a segunda tela de criação
     
-    //renderizar div perguntas
-    let divPerguntas = document.querySelector('.div-perguntas')
+    //esconder e modificar o que é velho
+    tituloTela3.innerHTML = 'Crie suas perguntas'
+    divPrimeirasPerguntas.classList.add('escondido')
+    primeiroBotaoTela3.classList.add('escondido')
+    
+    //renderizar div perguntas    
+    divPerguntas.classList.remove('escondido')
+
+    //renderizar botao da tela seguinte
+    segundoBotaoTela3.classList.remove('escondido')
 
     for(i = 1; i < quantidadePerguntas; i++) {
         divPerguntas.innerHTML = `
@@ -88,11 +102,18 @@ function prosseguirParaCriarNiveis() {
 
     //salvar no objetoFinal as perguntas << desafiante
 
-    //mostrar a terceira tela de criação
-
-    //renderizar div niveis
-    let divNiveis = document.querySelector('.div-niveis')
+    //esconder e modificar o que é velho
+    tituloTela3.innerHTML = 'Agora, decida os níveis!'
+    divPerguntas.classList.add('escondido')
+    segundoBotaoTela3.classList.add('escondido')
     
+    //renderizar div niveis    
+    divNiveiss.classList.remove('escondido')
+
+    //renderizar botao da tela seguinte
+    terceiroBotaoTela3.classList.remove('escondido')
+
+
     for(i = 1; i < quantidadeNiveis; i++) {        
         divNiveis.innerHTML = `
         
