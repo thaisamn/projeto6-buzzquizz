@@ -79,22 +79,22 @@ function prosseguirParaCriarPerguntas() {
         <div class="div-perguntas colapsado">
 
             <p>Pergunta ${i+1}</p>
-            <input class="input-tela3" placeholder="Texto da pergunta"></input>
-            <input class="input-tela3" placeholder="Cor de fundo da pergunta"></input>
+            <input class="pergunta-title input-tela3" placeholder="Texto da pergunta"></input>
+            <input class="pergunta-cor input-tela3" placeholder="Cor de fundo da pergunta"></input>
 
             <p>Resposta Correta</p>
-            <input class="input-tela3" placeholder="Resposta correta"></input>
-            <input class="input-tela3" placeholder="URL da imagem"></input>
+            <input class="resposta-certa input-tela3" placeholder="Resposta correta"></input>
+            <input class="url-resposta-certa input-tela3" placeholder="URL da imagem"></input>
 
             <p>Respostas Incorretas</p>
-            <input class="input-tela3" placeholder="Resposta incorreta 1">
-            <input class="input-tela3" placeholder="URL da imagem 1">
+            <input class="resposta-incorreta1 input-tela3" placeholder="Resposta incorreta 1">
+            <input class="url-incorreta1 input-tela3" placeholder="URL da imagem 1">
 
-            <input class="input-tela3" placeholder="Resposta incorreta 2">
-            <input class="input-tela3" placeholder="URL da imagem 2">
+            <input class="resposta-incorreta2 input-tela3" placeholder="Resposta incorreta 2">
+            <input class="url-incorreta2 input-tela3" placeholder="URL da imagem 2">
 
-            <input class="input-tela3" placeholder="Resposta incorreta 3">
-            <input class="input-tela3" placeholder="URL da imagem 3">
+            <input class="resposta-incorreta3 input-tela3" placeholder="Resposta incorreta 3">
+            <input class="url-incorreta3 input-tela3" placeholder="URL da imagem 3">
 
         </div>
 
@@ -105,7 +105,94 @@ function prosseguirParaCriarPerguntas() {
 
 function prosseguirParaCriarNiveis() {
 
+    let inputsTitles = document.querySelectorAll('.pergunta-title')
+    let arrayTitles = [].map.call(inputsTitles, function (input) {
+        return input.value;
+      });
+
+    let inputsCores = document.querySelectorAll('.pergunta-cor')
+    let arrayCores = [].map.call(inputsCores, function (input) {
+        return input.value;
+      });
+
+    let inputsCorretas = document.querySelectorAll('.resposta-certa')
+    let arrayCorretas = [].map.call(inputsCorretas, function (input) {
+        return input.value;
+      });
+
+    let inputsURLCorretas = document.querySelectorAll('.url-resposta-certa')
+    let arrayURLCorretas = [].map.call(inputsURLCorretas, function (input) {
+        return input.value;
+      });
+
+    let inputsIncorretas1 = document.querySelectorAll('.resposta-incorreta1')
+    let arrayIncorretas1 = [].map.call(inputsIncorretas1, function (input) {
+        return input.value;
+      });
+
+    let inputsURLIncorretas1 = document.querySelectorAll('.url-incorreta1')
+    let arrayURLIncorretas1 = [].map.call(inputsURLIncorretas1, function (input) {
+        return input.value;
+      });
+
+    let inputsIncorretas2 = document.querySelectorAll('.resposta-incorreta2')
+    let arrayIncorretas2 = [].map.call(inputsIncorretas2, function (input) {
+        return input.value;
+      });
+
+    let inputsURLIncorretas2 = document.querySelectorAll('.url-incorreta2')
+    let arrayURLIncorretas2 = [].map.call(inputsURLIncorretas2, function (input) {
+        return input.value;
+      });
+
+    let inputsIncorretas3 = document.querySelectorAll('.resposta-incorreta3')
+    let arrayIncorretas3 = [].map.call(inputsIncorretas3, function (input) {
+        return input.value;
+      });
+
+    let inputsURLIncorretas3 = document.querySelectorAll('.url-incorreta3')
+    let arrayURLIncorretas3 = [].map.call(inputsURLIncorretas3, function (input) {
+        return input.value;
+      });
+
+
     //salvar no objetoFinal as perguntas << desafiante
+    for (i = 0; i < quantidadePerguntas; i++){
+
+        objetoFinal.questions.push (`
+        {
+            title: "${arrayTitles[i]}",
+            color: "${arrayCores[i]}",
+            answers: [
+				{
+					text: "${arrayCorretas[i]}",
+					image: "${arrayURLCorretas[i]}",
+					isCorrectAnswer: true
+				},
+				{
+					text: "${arrayIncorretas1[i]}",
+					image: "${arrayURLIncorretas1[i]}",
+					isCorrectAnswer: false
+				},
+                {
+					text: "${arrayIncorretas2[i]},
+					image: "${arrayURLIncorretas2[i]}",
+					isCorrectAnswer: false
+				},
+                {
+					text: "${arrayIncorretas3[i]}",
+					image: "${arrayURLIncorretas3[i]}",
+					isCorrectAnswer: false
+				}
+			]
+        }
+        `)
+    }
+
+    console.log(objetoFinal)
+
+
+
 
     //esconder e modificar o que é velho
     tituloTela3.innerHTML = 'Agora, decida os níveis!'
@@ -144,6 +231,8 @@ function prosseguirParaCriarNiveis() {
 
 
 function finalizarQuizz() {
+
+    console.log(objetoFinal)
 
     //esconder e modificar o que é velho
     tituloTela3.innerHTML = 'Seu quizz está pronto!'
