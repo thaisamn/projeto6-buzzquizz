@@ -156,7 +156,7 @@ function prosseguirParaCriarNiveis() {
       });
 
 
-    //salvar no objetoFinal as perguntas << desafiante
+    //salvar no objetoFinal as perguntas
     for (i = 0; i < quantidadePerguntas; i++){
 
         objetoFinal.questions.push (`
@@ -185,7 +185,7 @@ function prosseguirParaCriarNiveis() {
 					isCorrectAnswer: false
 				}
 			]
-        }
+        },
         `)
     }
 
@@ -217,10 +217,10 @@ function prosseguirParaCriarNiveis() {
         <div class="div-niveis colapsado">
 
             <p>Nível ${i+1}</p>
-            <input placeholder="Título do nível"></input>
-            <input placeholder="% de acerto mínima"></input>            
-            <input placeholder="URL da imagem do nível"></input>
-            <input placeholder="Descrição do nível"></input>
+            <input class="title-nivel input-tela3" placeholder="Título do nível"></input>
+            <input class="porcentagem-acerto input-tela3" placeholder="% de acerto mínima"></input>            
+            <input class="imagem-nivel input-tela3" placeholder="URL da imagem do nível"></input>
+            <input class="descricao-nivel input-tela3" placeholder="Descrição do nível"></input>
 
         </div>
 
@@ -231,6 +231,43 @@ function prosseguirParaCriarNiveis() {
 
 
 function finalizarQuizz() {
+
+    let inputsTitleNivel = document.querySelectorAll('.title-nivel')
+    let arrayTitleNivel = [].map.call(inputsTitleNivel, function (input) {
+        return input.value;
+      });
+
+    let inputsPorcentagemAcerto = document.querySelectorAll('.porcentagem-acerto')
+    let arrayPorcentagemAcerto = [].map.call(inputsPorcentagemAcerto, function (input) {
+        return input.value;
+      });
+
+    let inputsImagemNivel = document.querySelectorAll('.imagem-nivel')
+    let arrayImagemNivel = [].map.call(inputsImagemNivel, function (input) {
+        return input.value;
+      });
+    
+    let inputsDescricaoNivel = document.querySelectorAll('.descricao-nivel')
+    let arrayDescricaoNivel = [].map.call(inputsDescricaoNivel, function (input) {
+        return input.value;
+      });
+
+    
+      for (i = 0; i < quantidadePerguntas; i++){
+      
+        objetoFinal.levels.push (`
+
+        {
+			title: "${arrayTitleNivel[i]}",
+			image: "${arrayImagemNivel[i]}",
+			text: "${arrayDescricaoNivel[i]}",
+			minValue: ${arrayPorcentagemAcerto[i]}
+		},    
+    
+    `)
+
+      }
+
 
     console.log(objetoFinal)
 
