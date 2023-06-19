@@ -63,55 +63,52 @@
         <div class="criandoQuizz">
             <p class="titulo-tela3">Comece pelo começo</p>
             <div class="div-primeiras-perg">
-                <input type="text" placeholder="Título do seu quizz">
-                <input type="text" placeholder="URL da imagem do seu quizz">
-                <input type="text" placeholder="Quantidade de perguntas do quizz">
-                <input type="text" placeholder="Quantidade de níveis do quizz">
+                <input type="text" class="input-titulo-quizz input-tela3" placeholder="Título do seu quizz">
+                <input type="text" class="input-imagem-quizz input-tela3" placeholder="URL da imagem do seu quizz">
+                <input type="text" class="input-qtdade-niveis input-tela3" placeholder="Quantidade de perguntas do quizz">
+                <input type="text" class="input-qtdade-perguntas input-tela3" placeholder="Quantidade de níveis do quizz">
             </div>
-            <button class="primeiro-botao-tela3">Prosseguir pra criar perguntas</button>
+            <button class="primeiro-botao-tela3" onclick="prosseguirParaCriarPerguntas()">Prosseguir pra criar perguntas</button>
         </div>
         <div class="criandoPerguntas">
-            <div class="div-perguntas">
+            <div class="div-perguntas escondido">
                 <p>Pergunta 1</p>
-                <input type="text" placeholder="Texto da pergunta">
-                <input type="text" placeholder="Cor de fundo da pergunta">
+                <input type="text" class="input-tela3" placeholder="Texto da pergunta">
+                <input type="text" class="input-tela3" placeholder="Cor de fundo da pergunta">
                 <p>Resposta correta</p>
-                <input type="text" placeholder="Resposta correta">
-                <input type="text" placeholder="URL da imagem">
+                <input type="text" class="input-tela3" placeholder="Resposta correta">
+                <input type="text" class="input-tela3" placeholder="URL da imagem">
                 <p>Respostas incorretas</p>
-                <input type="text" placeholder="Resposta incorreta 1">
-                <input type="text" placeholder="URL da imagem 1">
-                <input type="text" placeholder="Resposta incorreta 2">
-                <input type="text" placeholder="URL da imagem 2">
-                <input type="text" placeholder="Resposta incorreta 3">
-                <input type="text" placeholder="URL da imagem 3">
+                <input type="text" class="input-tela3" placeholder="Resposta incorreta 1">
+                <input type="text" class="input-tela3" placeholder="URL da imagem 1">
+                <input type="text" class="input-tela3" placeholder="Resposta incorreta 2">
+                <input type="text" class="input-tela3" placeholder="URL da imagem 2">
+                <input type="text" class="input-tela3" placeholder="Resposta incorreta 3">
+                <input type="text" class="input-tela3" placeholder="URL da imagem 3">
             </div>
-            <button class="segundo-botao-tela3">Prosseguir pra criar níveis</button>
+            <button class="segundo-botao-tela3 escondido" onclick="prosseguirParaCriarNiveis()">Prosseguir pra criar níveis</button>
         </div>
         <div class="criandoNiveis">
-            <div class="div-niveis">
+            <div class="div-niveis escondido">
                 <p>Nível 1</p>
-                <input type="text" placeholder="Título do nível">
-                <input type="text" placeholder="% de acerto mínima">
-                <input type="text" placeholder="URL da imagem do nível">
-                <input type="text" placeholder="Descrição do nível">
+                <input type="text" class="input-tela3" placeholder="Título do nível">
+                <input type="text" class="input-tela3" placeholder="% de acerto mínima">
+                <input type="text" class="input-tela3" placeholder="URL da imagem do nível">
+                <input type="text" class="input-tela3" placeholder="Descrição do nível">
             </div>
-                <button class="terceiro-botao-tela3">Finalizar Quizz</button>
+                <button class="terceiro-botao-tela3 escondido" onclick="finalizarQuizz()">Finalizar Quizz</button>
         </div>
-        <div class="QuizzPronto">
-            <p>Seu quizz está pronto!</p>
-            <input type="text" value="Título do seu quizz">
-            <input type="text" value="URL da imagem do seu quizz">
-            <input type="text" value="Quantidade de perguntas do quizz">
-            <input type="text" value="Quantidade de níveis do quizz">
-            <button>Acessar Quizz</button>
+        <div class="QuizzPronto">            
+            <div class="imagem-quizz-criado"></div>
+            <button class="quarto-botao-tela3 escondido">Acessar Quizz</button>
+            <p class="link-voltar-home escondido">Voltar pra home</p>
         </div>
     </div> 
 
    
 
    
-    
+    <script src="scripts-criacao-quizz.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts/scripts-tela-1.js"></script>
     <script src="./scripts/scripts-tela-2.js"></script>

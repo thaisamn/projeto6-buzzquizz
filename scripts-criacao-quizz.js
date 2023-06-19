@@ -7,6 +7,9 @@ let divPerguntas = document.querySelector('.div-perguntas')
 let segundoBotaoTela3 = document.querySelector('.segundo-botao-tela3')
 let divNiveis = document.querySelector('.div-niveis')
 let terceiroBotaoTela3 = document.querySelector('.terceiro-botao-tela3')
+let quartoBotaoTela3 = document.querySelector('.quarto-botao-tela3')
+let linkVoltarHome = document.querySelector('.link-voltar-home')
+let divImagemQuizzCriado = document.querySelector('.imagem-quizz-criado')
 
 let objetoFinal = {
 	title: "",
@@ -35,21 +38,23 @@ let nivel = {
 }
 
 
-function iniciarCriacaoQuizz() {
-
-    //apenas mostrar a primeira tela de criação
-
-}
-
 function prosseguirParaCriarPerguntas() {
 
     //salvar no objetoFinal Titulo e URL
-    objetoFinal.title = document.querySelector('.input-titulo-quizz').value
-    objetoFinal.image = document.querySelector('.input-imagem-quizz').value
+
+    let inputTituloQuizz = document.querySelector('.input-titulo-quizz')
+    let inputImagemQuizz = document.querySelector('.input-imagem-quizz')
+
+    objetoFinal.title = inputTituloQuizz.value
+    objetoFinal.image = inputImagemQuizz.value
 
     //salvar em variáveis quantidade de perguntas e níveis
-    quantidadeNiveis = document.querySelector('input-qtdade-niveis').value
-    quantidadePerguntas = document.querySelector('input-qtdade-perguntas').value
+
+    let inputQtdadeNiveis = document.querySelector('.input-qtdade-niveis')
+    quantidadeNiveis = inputQtdadeNiveis.value
+
+    let inputQtdadePerguntas = document.querySelector('.input-qtdade-perguntas')
+    quantidadePerguntas = inputQtdadePerguntas.value
 
     
     //esconder e modificar o que é velho
@@ -64,32 +69,32 @@ function prosseguirParaCriarPerguntas() {
     segundoBotaoTela3.classList.remove('escondido')
 
     for(i = 1; i < quantidadePerguntas; i++) {
-        divPerguntas.innerHTML = `
+        divPerguntas.innerHTML += `
         
-        <div class="botao-pergunta">
+        <div class="botao-pergunta escondido">
             <button>Pergunta ${i+1}</button>
             <img>
         </div>
 
-        <div class="pergunta-a-ser-criada colapsado">
+        <div class="div-perguntas colapsado">
 
             <p>Pergunta ${i+1}</p>
-            <input placeholder="Texto da pergunta"></input>
-            <input placeholder="Cor de fundo da pergunta"></input>
+            <input class="input-tela3" placeholder="Texto da pergunta"></input>
+            <input class="input-tela3" placeholder="Cor de fundo da pergunta"></input>
 
             <p>Resposta Correta</p>
-            <input placeholder="Resposta correta"></input>
-            <input placeholder="URL da imagem"></input>
+            <input class="input-tela3" placeholder="Resposta correta"></input>
+            <input class="input-tela3" placeholder="URL da imagem"></input>
 
             <p>Respostas Incorretas</p>
-            <input placeholder="Resposta incorreta 1">
-            <input placeholder=>"URL da imagem 1"
+            <input class="input-tela3" placeholder="Resposta incorreta 1">
+            <input class="input-tela3" placeholder="URL da imagem 1">
 
-            <input placeholder="Resposta incorreta 2">
-            <input placeholder=>"URL da imagem 2"
+            <input class="input-tela3" placeholder="Resposta incorreta 2">
+            <input class="input-tela3" placeholder="URL da imagem 2">
 
-            <input placeholder="Resposta incorreta 3">
-            <input placeholder=>"URL da imagem 3"
+            <input class="input-tela3" placeholder="Resposta incorreta 3">
+            <input class="input-tela3" placeholder="URL da imagem 3">
 
         </div>
 
@@ -108,21 +113,21 @@ function prosseguirParaCriarNiveis() {
     segundoBotaoTela3.classList.add('escondido')
     
     //renderizar div niveis    
-    divNiveiss.classList.remove('escondido')
+    divNiveis.classList.remove('escondido')
 
     //renderizar botao da tela seguinte
     terceiroBotaoTela3.classList.remove('escondido')
 
 
     for(i = 1; i < quantidadeNiveis; i++) {        
-        divNiveis.innerHTML = `
+        divNiveis.innerHTML += `
         
-        <div class="botao-nivel">
+        <div class="botao-nivel escondido">
             <button>Nível ${i+1}</button>
             <img>
         </div>
 
-        <div class="nivel-a-ser-criado colapsado">
+        <div class="div-niveis colapsado">
 
             <p>Nível ${i+1}</p>
             <input placeholder="Título do nível"></input>
@@ -139,6 +144,23 @@ function prosseguirParaCriarNiveis() {
 
 
 function finalizarQuizz() {
+
+    //esconder e modificar o que é velho
+    tituloTela3.innerHTML = 'Seu quizz está pronto!'
+    divNiveis.classList.add('escondido')
+    terceiroBotaoTela3.classList.add('escondido')
+    
+    //renderizar div imagem-quizz-criado
+    divImagemQuizzCriado.innerHTML = `
+        <img clas='imagem-quizz'>
+        <p class='titulo-quizz'></p>    
+    `    
+
+    //renderizar botao da tela seguinte
+    quartoBotaoTela3.classList.remove('escondido')
+
+    //renderizar link de voltar pra home
+    linkVoltarHome.classList.remove('escondido')
     
     //salvar no objetoFinal os níveis << desafiante
 
@@ -161,7 +183,5 @@ function finalizarQuizz() {
         localStorage.setItem("ids", idQuizzCriadoSerializado)
     
     }
-
-    //mostrar a quarta tela de criação
 
 }
