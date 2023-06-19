@@ -1,3 +1,5 @@
+axios.defaults.headers.common['Authorization'] = '2TjnuBhj7Kpss5QJF2YSHoj0'
+
 let quantidadeNiveis = 0;
 let quantidadePerguntas = 0;
 let tituloTela3 = document.querySelector('.titulo-tela3')
@@ -159,34 +161,34 @@ function prosseguirParaCriarNiveis() {
     //salvar no objetoFinal as perguntas
     for (i = 0; i < quantidadePerguntas; i++){
 
-        objetoFinal.questions.push (`
+        objetoFinal.questions.push (
         {
-            title: "${arrayTitles[i]}",
-            color: "${arrayCores[i]}",
+            title: arrayTitles[i],
+            color: arrayCores[i],
             answers: [
 				{
-					text: "${arrayCorretas[i]}",
-					image: "${arrayURLCorretas[i]}",
+					text: arrayCorretas[i],
+					image: arrayURLCorretas[i],
 					isCorrectAnswer: true
 				},
 				{
-					text: "${arrayIncorretas1[i]}",
-					image: "${arrayURLIncorretas1[i]}",
+					text: arrayIncorretas1[i],
+					image: arrayURLIncorretas1[i],
 					isCorrectAnswer: false
 				},
                 {
-					text: "${arrayIncorretas2[i]},
-					image: "${arrayURLIncorretas2[i]}",
+					text: arrayIncorretas2[i],
+					image: arrayURLIncorretas2[i],
 					isCorrectAnswer: false
 				},
                 {
-					text: "${arrayIncorretas3[i]}",
-					image: "${arrayURLIncorretas3[i]}",
+					text: arrayIncorretas3[i],
+					image: arrayURLIncorretas3[i],
 					isCorrectAnswer: false
 				}
 			]
         },
-        `)
+        )
     }
 
     console.log(objetoFinal)
@@ -253,18 +255,18 @@ function finalizarQuizz() {
       });
 
     
-      for (i = 0; i < quantidadePerguntas; i++){
+      for (i = 0; i < quantidadeNiveis; i++){
       
-        objetoFinal.levels.push (`
+        objetoFinal.levels.push (
 
         {
-			title: "${arrayTitleNivel[i]}",
-			image: "${arrayImagemNivel[i]}",
-			text: "${arrayDescricaoNivel[i]}",
-			minValue: ${arrayPorcentagemAcerto[i]}
+			title: arrayTitleNivel[i],
+			image: arrayImagemNivel[i],
+			text: arrayDescricaoNivel[i],
+			minValue: Number(arrayPorcentagemAcerto[i])
 		},    
     
-    `)
+    )
 
       }
 
@@ -287,13 +289,15 @@ function finalizarQuizz() {
 
     //renderizar link de voltar pra home
     linkVoltarHome.classList.remove('escondido')
-    
-    //salvar no objetoFinal os níveis << desafiante
 
     //enviar o objetoFinal pelo axios
     let promessaCriar = axios.post('https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes', objetoFinal)
     promessaCriar.then(deuCertoCriarQuizz)
     promessaCriar.catch(deuErradoCriarQuizz)
+
+    function deuErradoCriarQuizz(){
+        alert('Poxa, deu errado!')
+    }
 
     //then
     function deuCertoCriarQuizz(resposta) {
