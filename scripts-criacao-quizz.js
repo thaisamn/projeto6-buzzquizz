@@ -279,9 +279,13 @@ function finalizarQuizz() {
     terceiroBotaoTela3.classList.add('escondido')
     
     //renderizar div imagem-quizz-criado
+    
+    let inputTituloQuizz = document.querySelector('.input-titulo-quizz')
+    let inputImagemQuizz = document.querySelector('.input-imagem-quizz')
+
     divImagemQuizzCriado.innerHTML = `
-        <img clas='imagem-quizz'>
-        <p class='titulo-quizz'></p>    
+        <img src="${inputImagemQuizz.value}" class="imagem-quizz">
+        <p class="titulo-quizz">${inputTituloQuizz.value}</p>    
     `    
 
     //renderizar botao da tela seguinte
